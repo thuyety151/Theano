@@ -4,6 +4,8 @@ from theano.tensor.nnet import sigmoid
 from theano.tensor import tanh
 import theano
 import numpy as np
+from theano.tensor.nnet import conv
+from theano.tensor.signal import pool
 class ConvPoolLayer(object):
     
     """Used to create a combination of a convolutional and a max-pooling
