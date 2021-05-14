@@ -54,16 +54,6 @@ def dropout_layer(layer, p_dropout):
 
 
 if __name__ =="__main__":
-    GPU = True
-    if GPU:
-        print ("Trying to run under a GPU.  If this is not desired, then modify "+\
-            "network3.py\nto set the GPU flag to False.")
-        try: theano.config.device = 'gpu'
-        except: pass # it's already set
-        theano.config.floatX = 'float32'
-    else:
-        print ("Running with a CPU.  If this is not desired, then the modify "+\
-            "network3.py to set\nthe GPU flag to True.")
 
     training_data, validation_data, test_data = load_data_shared()
 
@@ -82,7 +72,7 @@ if __name__ =="__main__":
     net.SGD(training_data, 1, mini_batch_size, 0.1, validation_data, test_data)
 
     # add a convolutional layer: 
-    
+    '''
     net = Network([
             ConvPoolLayer(image_shape=(mini_batch_size, 1, 28, 28),
                         filter_shape=(20, 1, 5, 5),
@@ -91,5 +81,4 @@ if __name__ =="__main__":
             SoftmaxLayer(n_in=100, n_out=10)], 
                 mini_batch_size)
 
-    net.SGD(training_data, 60, mini_batch_size, 0.1, validation_data, test_data)
-    expanded_training_data, _, _ = load_data_shared("../../neural-networks-and-deep-learning/data/mnist_expanded.pkl.gz")
+    net.SGD(training_data, 60, mini_batch_size, 0.1, validation_data, test_data)'''
